@@ -3,7 +3,7 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 // Les 3 fonctions qui suivent valident et formattent les données du fichier list.txt en un tableau
 function validateInputFile(argument) {
-    if (argument === "list_even.txt" || argument === "list_odd.txt") {
+    if (argument === "list_even.txt" || argument === "list_odd.txt" || argument === "list.txt") {
         return true;
     }
     else {
@@ -262,6 +262,15 @@ function perform () {
         let mergeSorting = sort.mergeSort(rawArray);
         console.log(`Tri fusion : ${sort.nbComparisons} comparaisons - [${mergeSorting}].`);
         prompt("[ENTER]");
+
+        // Lancement du tri fusion avec un tableau test
+        // let testArray = Array.from({length: 100}, () => Math.floor(Math.random() * 100));
+        // console.log(testArray);
+        // sort.resetNbComparisons();
+        
+        // let testSorting = sort.mergeSort(testArray);
+        // console.log(`Tri fusion : ${sort.nbComparisons} comparaisons - [${testSorting}].`);
+        // prompt("[ENTER]");
     }
 }
 
