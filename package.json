@@ -1,0 +1,22 @@
+{
+  "name": "thp_dev_w2d3_algorithmie2",
+  "version": "1.0.0",
+  "description": "1. Clone this repo. 2. Open your Terminal. 3. Launch : node mergeSorting.js list.txt 4. Checkout out the efficiency of this classical sorting algorithm.",
+  "main": "sortings.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ju777/THP_dev_w2d3_algorithmie2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ju777/THP_dev_w2d3_algorithmie2/issues"
+  },
+  "homepage": "https://github.com/Ju777/THP_dev_w2d3_algorithmie2#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
