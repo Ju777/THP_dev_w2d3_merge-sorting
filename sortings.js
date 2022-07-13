@@ -175,9 +175,9 @@ class Sort {
         let k = 0;
 
         while(i < left.length && j < right.length) {
-            
+            this.nbComparisons++;
             if(left[i] < right[j]) {
-                this.nbComparisons++;
+                
                 array[k] = left[i];
                 i++;
                 k++;
@@ -226,51 +226,42 @@ function perform () {
         console.log(`Le tableau à trier est ${rawArray}, sa longueur est ${rawArray.length}`);
         prompt("[ENTER]");
 
-        // Lancement du tri à bulles
-        let bubbleSorting = sort.bubbleSort(rawArray, rawArray.length - 1);
-        console.log(`Tri à bulles : ${sort.nbComparisons} comparaisons - [${bubbleSorting}].`);
-        prompt("[ENTER]");
+        // // Lancement du tri à bulles
+        // let bubbleSorting = sort.bubbleSort(rawArray, rawArray.length - 1);
+        // console.log(`\n\tTri à bulles -> ${sort.nbComparisons} comparaisons :\n[${bubbleSorting}].`);
+        // prompt("[ENTER]");
 
-        // Lancement du tri par insertion
-        rawArray = dataReset();
-        sort.resetNbComparisons();
+        // // Lancement du tri par insertion
+        // rawArray = dataReset();
+        // sort.resetNbComparisons();
 
-        let insertionSorting = sort.insertionSort(rawArray);
-        console.log(`Tri par insertion : ${sort.nbComparisons} comparaisons - [${insertionSorting}].`);
-        prompt("[ENTER]");
+        // let insertionSorting = sort.insertionSort(rawArray);
+        // console.log(`\n\tTri par insertion -> ${sort.nbComparisons} comparaisons :\n[${insertionSorting}].`);
+        // prompt("[ENTER]");
 
-        // Lancement du tri par sélection
-        rawArray = dataReset();
-        sort.resetNbComparisons();
+        // // Lancement du tri par sélection
+        // rawArray = dataReset();
+        // sort.resetNbComparisons();
         
-        let selectionSorting = sort.selectionSort(rawArray);
-        console.log(`Tri par sélection : ${sort.nbComparisons} comparaisons - [${selectionSorting}].`);
-        prompt("[ENTER]");
+        // let selectionSorting = sort.selectionSort(rawArray);
+        // console.log(`\n\tTri par sélection -> ${sort.nbComparisons} comparaisons :\n[${selectionSorting}].`);
+        // prompt("[ENTER]");
 
-        // Lancement du tri rapide
-        rawArray = dataReset();
-        sort.resetNbComparisons();
+        // // Lancement du tri rapide
+        // rawArray = dataReset();
+        // sort.resetNbComparisons();
         
-        let quickSorting = sort.quickSort(rawArray, 0, rawArray.length - 1);
-        console.log(`Tri rapide : ${sort.nbComparisons} comparaisons - [${quickSorting}].`);
-        prompt("[ENTER]");   
+        // let quickSorting = sort.quickSort(rawArray, 0, rawArray.length - 1);
+        // console.log(`\n\tTri rapide -> ${sort.nbComparisons} comparaisons :\n[${quickSorting}].`);
+        // prompt("[ENTER]");   
 
         // Lancement du tri fusion
         rawArray = dataReset();
         sort.resetNbComparisons();
         
         let mergeSorting = sort.mergeSort(rawArray);
-        console.log(`Tri fusion : ${sort.nbComparisons} comparaisons - [${mergeSorting}].`);
+        console.log(`\n\tTri fusion -> ${sort.nbComparisons} comparaisons :\n[${mergeSorting}].`);
         prompt("[ENTER]");
-
-        // Lancement du tri fusion avec un tableau test
-        // let testArray = Array.from({length: 100}, () => Math.floor(Math.random() * 100));
-        // console.log(testArray);
-        // sort.resetNbComparisons();
-        
-        // let testSorting = sort.mergeSort(testArray);
-        // console.log(`Tri fusion : ${sort.nbComparisons} comparaisons - [${testSorting}].`);
-        // prompt("[ENTER]");
     }
 }
 
