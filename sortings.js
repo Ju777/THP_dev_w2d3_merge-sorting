@@ -51,14 +51,9 @@ class Sort {
     }
 
     mergeSort(array) { // Using recursion
-        //log de vérif
-        // console.log("DEBUT MERGESORT(array).")
-        // prompt("[ENTER]");
-       
+      
         // Base case : si le tableau array contient 1 élélent ou moins, on le retourne.
         if (array.length < 2) {
-            // console.log(`Récursion terminés pour ${array}.`)
-            // prompt("[ENTER]");
             return array;
         }
         
@@ -67,26 +62,16 @@ class Sort {
             // Le départ est de séparer le tableau en 2 moitiés
             let left = array.slice(0, array.length/2);
             let right = array.slice(array.length/2, array.length);
-    
-            // log de vérif
-            // console.log(`LEFT = ${left} | ${right} = RIGHT.`);
-            // prompt("[ENTER]");
-
+   
             this.mergeSort(left);
             this.mergeSort(right);
-            
-            // console.log("\nFIN MERGESORT(array).")
-            // console.log("~".repeat(100));
+   
             return this.merging(left, right, array);
         }
         
     }
 
     merging(left, right, array) {
-        // console.log("\n" + "~".repeat(50));
-        // console.log(`DEBUT DE MERGING = états des tableaux => `);
-        // console.log(`[L|R] ARRAY : [${left}|${right}] ${array}`);
-        // prompt("[ENTER]");
         let i = 0;
         let j = 0;
         let k = 0;
@@ -103,32 +88,20 @@ class Sort {
                 j++;
                 k++;
             }
-            // console.log(`FIN DE WHILE A`);
-            // console.log(`[L|R] ARRAY : [${left}|${right}] ${array}`);
-            // prompt("[ENTER]");
-
         }
 
         while(i < left.length) {
             array[k] = left[i];
             i++;
             k++;
-            // console.log(`FIN DE WHILE B`);
-            // console.log(`[L|R] ARRAY : [${left}|${right}] ${array}`);
-            // prompt("[ENTER]");
         }
 
         while(j < right.length) {
             array[k] = right[j];
             j++;
             k++;
-            // console.log(`FIN DE WHILE C`);
-            // console.log(`[L|R] ARRAY : [${left}|${right}] ${array}`);
-            // prompt("[ENTER]");
         }
-        // console.log(`\nFIN GENERAL MERGING`);
-        // console.log(`[L|R] ARRAY : [${left}|${right}] ${array}`);
-        // prompt("[ENTER]");
+
         return array;
     }
 }
