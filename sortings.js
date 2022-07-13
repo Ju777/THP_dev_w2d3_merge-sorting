@@ -50,89 +50,6 @@ class Sort {
         this.nbComparisons = 0;
     }
 
-    bubbleSort(array, limit) {
-        if (limit === 0) {
-            // console.log(`Tri à bulles terminé : ${this.nbComparisons} comparaisons.`);
-            return array;
-        }
-
-        for(let i = 0 ; i < limit ; i++) {
-            if (array[i] > array[i+1]) {
-                this.nbComparisons++;
-
-                // Swap avec la déstructuration
-                [array[i], array[i+1]] = [array[i+1], array[i]];
-            }      
-        }
-        this.bubbleSort(array, limit - 1);
-
-        return array;
-    }
-
-    insertionSort(array) {
-        for(let i = 1 ; i < array.length ; i++) {
-            let current = array[i];
-            let j = i -1;
-            while(j >= 0 && array[j] > current) {
-                this.nbComparisons++;
-                array[j+1] = array[j];
-                j--;
-            }
-            array[j+1] = current;
-        }
-
-        return array;
-    }
-
-    selectionSort(array) {
-        for(let i = 0 ; i < array.length ; i++) {
-            let current_min = array[i];
-            for(let j = i+1 ; j < array.length ; j++) {
-                if (array[j] < current_min) {
-                    current_min = array[j];
-                    this.nbComparisons++;
-                }
-            }
-            let min_index = array.indexOf(current_min);
-            [array[i], array[min_index]] = [array[min_index], array[i]];
-        }
-        return array;
-    }
-
-    quickSort(array, start, end) { // Using recursion
-        // Base cases
-        if (start >= end ) { return array; }
-        else {
-            let pivIndex = this.partition(array, start, end);
-            this.quickSort(array, start, pivIndex-1);
-            this.quickSort(array, pivIndex+1, end);
-            return array;
-        }
-    }
-
-    partition(array, start, end) {
-        let pivot = array[start];
-        let partIndex = start+1;
-
-        // Boucle : on compare chaque élément du tableau avec le pivot
-        // Si l'élément est plus petit => swap entre l'élément et l'élément qui est au pIndex.
-        for(let j = start+1 ; j <= end ; j++) {
-
-            if (array[j] < pivot) {
-                this.nbComparisons++;
-                // on fait le swap en question.
-                [array[j], array[partIndex]] = [array[partIndex], array[j]];
-                // l'index de partition avance d'un cran pour isoler la partie triée sur la gauche
-                partIndex++;
-            }
-        }
-
-        //Quand toutes les valeurs ont été testées (et donc triés gauche/droite)
-        // Il faut placer le pivot juste avant le partIndex : pour cela on fait donc un swap entre pivot et array[partIndex-1]
-        [array[start], array[partIndex-1]] = [array[partIndex-1], array[start]];
-        return partIndex-1;        
-    }
-
     mergeSort(array) { // Using recursion
         //log de vérif
         // console.log("DEBUT MERGESORT(array).")
@@ -225,35 +142,6 @@ function perform () {
         console.log("\n" + "~".repeat(50));
         console.log(`Le tableau à trier est ${rawArray}, sa longueur est ${rawArray.length}`);
         prompt("[ENTER]");
-
-        // // Lancement du tri à bulles
-        // let bubbleSorting = sort.bubbleSort(rawArray, rawArray.length - 1);
-        // console.log(`\n\tTri à bulles -> ${sort.nbComparisons} comparaisons :\n[${bubbleSorting}].`);
-        // prompt("[ENTER]");
-
-        // // Lancement du tri par insertion
-        // rawArray = dataReset();
-        // sort.resetNbComparisons();
-
-        // let insertionSorting = sort.insertionSort(rawArray);
-        // console.log(`\n\tTri par insertion -> ${sort.nbComparisons} comparaisons :\n[${insertionSorting}].`);
-        // prompt("[ENTER]");
-
-        // // Lancement du tri par sélection
-        // rawArray = dataReset();
-        // sort.resetNbComparisons();
-        
-        // let selectionSorting = sort.selectionSort(rawArray);
-        // console.log(`\n\tTri par sélection -> ${sort.nbComparisons} comparaisons :\n[${selectionSorting}].`);
-        // prompt("[ENTER]");
-
-        // // Lancement du tri rapide
-        // rawArray = dataReset();
-        // sort.resetNbComparisons();
-        
-        // let quickSorting = sort.quickSort(rawArray, 0, rawArray.length - 1);
-        // console.log(`\n\tTri rapide -> ${sort.nbComparisons} comparaisons :\n[${quickSorting}].`);
-        // prompt("[ENTER]");   
 
         // Lancement du tri fusion
         rawArray = dataReset();
